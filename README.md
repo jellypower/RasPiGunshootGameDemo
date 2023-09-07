@@ -43,41 +43,41 @@
 
 public class MyVRControllerManager : MonoBehaviour
 {
-	.
-	.
-	.
+.
+.
+.
     UdpClient cli;
-	.
-	.
-	.
-	void StartRecvControllerInfo()
-  {
-		Thread thread = new Thread(ReadSensor);
-		thread.Start();
-	}
+.
+.
+.
+    void StartRecvControllerInfo()
+    {
+        Thread thread = new Thread(ReadSensor);
+        thread.Start();
+    }
 
-	void ReadSensor()
-  {
-		while (state == NetworkState.Connected)
-		{
-			try
-			{
-				bytes = cli.Receive(ref endPoint);
-			}
-			catch (SocketException e)
-			{
-				print(e);
-				state = NetworkState.Disconnected;
-				return;
-			}
-			UpdateDevData(bytes);
-			.
-			.
-			.
-	}
-	.
-	.
-	.
+    void ReadSensor()
+    {
+    while (state == NetworkState.Connected)
+    {
+        try
+        {
+            bytes = cli.Receive(ref endPoint);
+        }
+        catch (SocketException e)
+        {
+            print(e);
+            state = NetworkState.Disconnected;
+            return;
+        }
+        UpdateDevData(bytes);
+.
+.
+.
+    }
+.
+.
+.
 ```
 
 - 소스코드: https://github.com/jellypower/RasPiGunshootGameDemo/blob/master/Assets/FPS/Scripts/Game/VRControllerScript/MyVRControllerManager.cs
@@ -91,22 +91,21 @@ void updateVRData(struct packetData* data, RTIMU_DATA* sensor, struct pollfd* jo
 .
 .
 .
-	RTQuaternion deg = sensor->fusionQPose;
+    RTQuaternion deg = sensor->fusionQPose;
 .
 .
 .
+    deg = qStart * deg;
+    deg.normalize();
+.
+.
+.
+    data->angle[0] = deg.x();
+    data->angle[1] = deg.y();
+    data->angle[2] = deg.z();
+    data->angle[3] = deg.scalar();
 
-	deg = qStart * deg;
-	deg.normalize();
-.
-.
-.
-	data->angle[0] = deg.x();
-	data->angle[1] = deg.y();
-	data->angle[2] = deg.z();
-	data->angle[3] = deg.scalar();
-
-	data->btnClick = getJoystickDir(joyfd);
+    data->btnClick = getJoystickDir(joyfd);
 
 }
 ```
