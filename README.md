@@ -1,4 +1,6 @@
-![Untitled](https://github.com/jellypower/PublicImageDataBase/blob/main/Portfolio/UnityRasberryPIVRController/GamePlayVideoBanner.png?raw=true)
+<p align="center">
+<img src="https://github.com/jellypower/PublicImageDataBase/blob/main/Portfolio/UnityRasberryPIVRController/GamePlayVideoBanner.png?raw=true" alt="drawing" width="600"/>
+</p>
 
 > 2022년도 1학기, 세종대학교 임베디드 프로젝트 수업 과정에서 제작한
 **“라즈베리파이를 활용한 VR컨트롤러 제작”** 프로젝트
@@ -34,7 +36,11 @@
 
 - UDP Broadcast를 활용해 LAN내에서 활용 가능한 기기 탐색 및 인증을 자동화
 
-![Untitled](https://github.com/jellypower/PublicImageDataBase/blob/main/Portfolio/UnityRasberryPIVRController/ValidationProcess.png)
+
+<p align="center">
+<img src="https://github.com/jellypower/PublicImageDataBase/blob/main/Portfolio/UnityRasberryPIVRController/ValidationProcess.png" alt="drawing" width="700"/>
+</p>
+
 
 
 - Unity, C#라이브러리가 패킷을 수신 하는 과정에서 소켓의 블로킹으로 인해 프레임이 멈추는 현상을 방지하기 위해 별도의 스레드를 생성하여 패킷 수신 작업을 비동기로 진행
@@ -112,8 +118,9 @@ void updateVRData(struct packetData* data, RTIMU_DATA* sensor, struct pollfd* jo
 
 
 - 최종적으로 컨트롤러의 쿼터니언 회전값, 기기 가속력, Joystick입력값을 포함한 패킷을 초당 10회 샘플링하여 전송
-
-![Untitled](https://github.com/jellypower/PublicImageDataBase/blob/main/Portfolio/UnityRasberryPIVRController/PacketStructure.png)
+<p align="center">
+<img src="https://github.com/jellypower/PublicImageDataBase/blob/main/Portfolio/UnityRasberryPIVRController/PacketStructure.png" alt="drawing" width="400"/>
+</p>
 
 # 프로젝트 진행 후 피드백
 
